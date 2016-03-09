@@ -7,14 +7,17 @@
     <title>My ToDo list</title>
 </head>
 <body onload="doShowAll()">
-<div id="container">
-    <section id="taskSection">
-        <div id="formContainer">
-            <form id="taskForm" onsubmit="doAdd()">
-                <input id="taskInput" placeholder="Type new item and press Enter"/>
-            </form>
+    <div class="page">
+        <div id="container">
+            <section id="taskSection">
+                <div id="formContainer">
+                    <form id="taskForm" onsubmit="doAdd()">
+                        <input id="taskInput" placeholder="Type new item and press Enter"/>
+                    </form>
+                </div>
+            </section>
+            <ul id="list"></ul>
         </div>
-    </section>
-</div>
+    </div>
 </body>
 </html>

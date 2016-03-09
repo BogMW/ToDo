@@ -1,15 +1,15 @@
 function CheckBrowser() {
     if ('localStorage' in window && window['localStorage'] !== null) {
-        return true;
-    } else {
-        return false;
-    }
+    return true;
+} else {
+    return false;
+}
 }
 
 function generateItem(item){
     var newLi = document.createElement('li');
     newLi.innerHTML = localStorage[item];
-    document.body.appendChild(newLi);
+    document.getElementById('list').appendChild(newLi);
 }
 
 function doShowAll() {
