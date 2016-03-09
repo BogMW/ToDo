@@ -8,8 +8,8 @@ function CheckBrowser() {
 
 function generateItem(item){
     var newLi = document.createElement('li');
-    newLi.innerHTML = localStorage[item];
-    document.getElementById('list').appendChild(newLi);
+    newLi.innerHTML = JSON.parse(localStorage[item]).text;
+    document.getElementById('list').appendChild(newLi)
 }
 
 function doShowAll() {
@@ -23,8 +23,10 @@ function doShowAll() {
 }
 
 function doAdd () {
-    var newDo = document.getElementById('taskInput').value;
+    var newDoText = document.getElementById('taskInput').value;
+    var newDoStatus = 'false';
+    var newDo = {text : newDoText, status: newDoStatus};
     var index = localStorage.length;
-    localStorage[index] = newDo;
+    localStorage[index] = JSON.stringify(newDo);
     generateItem(index);
 }
