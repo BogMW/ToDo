@@ -17,13 +17,17 @@ function generateItem(item){
     newLiCheckBox.value = item;
     newLiCheckBox.checked = JSON.parse(localStorage.getItem(item)).status;
     newLiCheckBox.onchange=function(){
-        var ell = JSON.parse(localStorage.getItem(this.value));
+        var id = this.value;
+        var selector = '#' + id + ' p';
+        var ell = JSON.parse(localStorage.getItem(id));
         if (ell.status == false) {
             ell.status = true;
+            document.querySelector(selector).className = 'done';
         } else {
             ell.status = false;
+            document.querySelector(selector).removeAttribute("class");
         }
-        localStorage.setItem(this.value, JSON.stringify(ell));
+        localStorage.setItem(id, JSON.stringify(ell));
     };
     var newLiText = document.createElement('p');
     newLiText.innerHTML = JSON.parse(localStorage.getItem(item)).text;
