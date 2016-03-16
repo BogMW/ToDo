@@ -42,3 +42,7 @@ li {
     padding: 10px 15px;
     cursor: pointer;
 }
+
+#list p {
+    display: inline-block;
+}

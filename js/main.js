@@ -1,3 +1,5 @@
+
+//Checking localStorage support
 function CheckBrowser() {
     if ('localStorage' in window && window['localStorage'] !== null) {
     return true;
@@ -6,12 +8,31 @@ function CheckBrowser() {
 }
 }
 
+//Generate one list element
 function generateItem(item){
     var newLi = document.createElement('li');
-    newLi.innerHTML = JSON.parse(localStorage.getItem(item)).text;
-    document.getElementById('list').appendChild(newLi)
+    newLi.id = item;
+    var newLiCheckBox = document.createElement('input');
+    newLiCheckBox.type = 'checkbox';
+    newLiCheckBox.value = item;
+    newLiCheckBox.checked = JSON.parse(localStorage.getItem(item)).status;
+    newLiCheckBox.onchange=function(){
+        var ell = JSON.parse(localStorage.getItem(this.value));
+        if (ell.status == false) {
+            ell.status = true;
+        } else {
+            ell.status = false;
+        }
+        localStorage.setItem(this.value, JSON.stringify(ell));
+    };
+    var newLiText = document.createElement('p');
+    newLiText.innerHTML = JSON.parse(localStorage.getItem(item)).text;
+    document.getElementById('list').appendChild(newLi);
+    document.getElementById(item).appendChild(newLiCheckBox);
+    document.getElementById(item).appendChild(newLiText)
 }
 
+//Generate all elements on page load if they exist
 function doShowAll() {
     if (CheckBrowser()) {
         if (checkToDo() > 0) {
@@ -25,6 +46,7 @@ function doShowAll() {
     }
 }
 
+//Calculate records count
 function checkToDo (){
     var toDoCount = 0;
    for (var key in localStorage) {
@@ -35,9 +57,10 @@ function checkToDo (){
     return toDoCount;
 }
 
+//Adding new element to localStorage and list
 function doAdd () {
     var newDoText = document.getElementById('taskInput').value;
-    var newDoStatus = 'false';
+    var newDoStatus = 0;
     var newDo = {text : newDoText, status: newDoStatus};
     var doCount = checkToDo();
     var index = 'toDo'+ doCount;
