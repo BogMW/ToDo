@@ -74,3 +74,34 @@ function doAdd () {
     localStorage.setItem(index, JSON.stringify(newDo));
     generateItem(index);
 }
+
+function filterInprogress() {
+    for (var i = 0; i < checkToDo(); i++) {
+        var gKey = 'toDo' + i;
+        if ((JSON.parse(localStorage.getItem(gKey)).status == true)) {
+            document.getElementById(gKey).className = 'hiden';
+        } else {
+            document.getElementById(gKey).removeAttribute("class");
+        }
+    }
+}
+
+function filterDone() {
+    for (var i = 0; i < checkToDo(); i++) {
+        var gKey = 'toDo' + i;
+        if ((JSON.parse(localStorage.getItem(gKey)).status == false)) {
+            document.getElementById(gKey).className = 'hiden';
+        } else {
+            document.getElementById(gKey).removeAttribute("class");
+        }
+    }
+}
+
+function filterAll() {
+    for (var i = 0; i < checkToDo(); i++) {
+        var gKey = 'toDo' + i;
+          document.getElementById(gKey).removeAttribute("class");
+    }
+}
+
+
