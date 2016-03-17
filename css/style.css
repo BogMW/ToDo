@@ -51,3 +51,7 @@ li {
     text-decoration: line-through;
     color: dimgrey;
 }
+
+.hiden {
+    display: none;
+}
