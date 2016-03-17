@@ -31,6 +31,9 @@ function generateItem(item){
     };
     var newLiText = document.createElement('p');
     newLiText.innerHTML = JSON.parse(localStorage.getItem(item)).text;
+    if (JSON.parse(localStorage.getItem(item)).status == true) {
+        newLiText.className = 'done';
+    }
     document.getElementById('list').appendChild(newLi);
     document.getElementById(item).appendChild(newLiCheckBox);
     document.getElementById(item).appendChild(newLiText)
