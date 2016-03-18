@@ -75,7 +75,12 @@ function doAdd () {
     generateItem(index);
 }
 
-function filterInprogress() {
+
+document.getElementById('filterInprogress').addEventListener('click', function() {
+    document.getElementById('filterInprogress').className = 'bold';
+    document.getElementById('filterDone').removeAttribute("class");
+    document.getElementById('filterAll').removeAttribute("class");
+    document.getElementById('clearDone').style.display = 'none';
     for (var i = 0; i < checkToDo(); i++) {
         var gKey = 'toDo' + i;
         if ((JSON.parse(localStorage.getItem(gKey)).status == true)) {
@@ -84,9 +89,13 @@ function filterInprogress() {
             document.getElementById(gKey).removeAttribute("class");
         }
     }
-}
+}, false);
 
-function filterDone() {
+document.getElementById('filterDone').addEventListener('click', function() {
+    document.getElementById('filterDone').className = 'bold';
+    document.getElementById('filterInprogress').removeAttribute("class");
+    document.getElementById('filterAll').removeAttribute("class");
+    document.getElementById('clearDone').style.display = 'block';
     for (var i = 0; i < checkToDo(); i++) {
         var gKey = 'toDo' + i;
         if ((JSON.parse(localStorage.getItem(gKey)).status == false)) {
@@ -95,13 +104,36 @@ function filterDone() {
             document.getElementById(gKey).removeAttribute("class");
         }
     }
-}
+}, false);
 
-function filterAll() {
+document.getElementById('filterAll').addEventListener('click', function() {
+    document.getElementById('filterAll').className = 'bold';
+    document.getElementById('filterDone').removeAttribute("class");
+    document.getElementById('filterInprogress').removeAttribute("class");
+    document.getElementById('clearDone').style.display = 'none';
     for (var i = 0; i < checkToDo(); i++) {
         var gKey = 'toDo' + i;
-          document.getElementById(gKey).removeAttribute("class");
+        document.getElementById(gKey).removeAttribute("class");
     }
-}
+}, false);
 
+document.getElementById('clearDone').addEventListener('click', function() {
+    var newLS = {};
+    var counter = 0;
+    for (var i = 0; i < checkToDo(); i++) {
+        var gKey = 'toDo' + i;
+        if ((JSON.parse(localStorage.getItem(gKey)).status == false)) {
+            var newKey = 'toDo' + counter;
+            newLS[newKey] = localStorage.getItem(gKey);
+            counter += 1;
+        }
+    }
+    localStorage.clear();
+    for (var key in newLS) {
+       localStorage.setItem(key, newLS[key]);
+    };
+    document.getElementById('list').innerHTML = '';
+    document.getElementById('filterAll').click();
+    doShowAll();
+}, false);
 

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet">
-    <script src="js/main.js"></script>
     <title>My ToDo list</title>
 </head>
 <body onload="doShowAll()">
@@ -17,12 +16,17 @@
                 </div>
             </section>
             <ul class="filter">
-                <li onclick="filterAll()">All</li>
-                <li onclick="filterInprogress()">In progress</li>
-                <li onclick="filterDone()">Done</li>
+                <li class="bold" id="filterAll">All</li>
+                <li id="filterInprogress">In progress</li>
+                <li id="filterDone">Done</li>
             </ul>
-            <ul id="list"></ul>
+            <ul id="listContainer">
+                <div id="clearDone">Clear all done</div>
+                <ul id="list"></ul>
+            </ul>
+
         </div>
     </div>
 </body>
+<script src="js/main.js"></script>
 </html>
