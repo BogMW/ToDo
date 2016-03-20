@@ -139,7 +139,7 @@ document.getElementById('clearDone').addEventListener('click', function() {
 
 document.onkeyup = function (e) {
     e = e || window.event;
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && document.getElementById('taskInput').value !== '') {
         doAdd();
         document.getElementById('taskInput').value = '';
     }
