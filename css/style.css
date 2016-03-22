@@ -96,7 +96,7 @@ body {
     display: none;
     font-weight: bold;
     color: red;
-    width: 110px;
+    width: 120px;
     padding: 5px;
     border-radius: 5px;
 }
@@ -105,5 +105,4 @@ body {
     cursor: pointer;
     background-color: red;
     color: white;
-
 }
