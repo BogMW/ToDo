@@ -75,7 +75,7 @@ function doAdd () {
     generateItem(index);
 }
 
-
+//Filtering in progress items
 document.getElementById('filterInprogress').addEventListener('click', function() {
     document.getElementById('filterInprogress').className = 'bold';
     document.getElementById('filterDone').removeAttribute("class");
@@ -91,6 +91,7 @@ document.getElementById('filterInprogress').addEventListener('click', function()
     }
 }, false);
 
+//Filtering in done items
 document.getElementById('filterDone').addEventListener('click', function() {
     document.getElementById('filterDone').className = 'bold';
     document.getElementById('filterInprogress').removeAttribute("class");
@@ -106,6 +107,7 @@ document.getElementById('filterDone').addEventListener('click', function() {
     }
 }, false);
 
+//Filtering in all items
 document.getElementById('filterAll').addEventListener('click', function() {
     document.getElementById('filterAll').className = 'bold';
     document.getElementById('filterDone').removeAttribute("class");
@@ -117,6 +119,7 @@ document.getElementById('filterAll').addEventListener('click', function() {
     }
 }, false);
 
+//Remove all done elements when button clicked
 document.getElementById('clearDone').addEventListener('click', function() {
     var newLS = {};
     var counter = 0;
@@ -137,6 +140,7 @@ document.getElementById('clearDone').addEventListener('click', function() {
     doShowAll();
 }, false);
 
+//Run doAdd function when Enter pressed and checking input for non empty value
 document.onkeyup = function (e) {
     e = e || window.event;
     if (e.keyCode === 13 && document.getElementById('taskInput').value !== '') {
@@ -144,4 +148,8 @@ document.onkeyup = function (e) {
         document.getElementById('taskInput').value = '';
     }
     return false;
-}
+};
+
+
+
+
