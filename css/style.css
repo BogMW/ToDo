@@ -107,7 +107,7 @@ body {
     color: white;
 }
 
-@media only screen and (max-width: 1081px) {
+@media all and (orientation: portrait), all and (min-width: 1081px) {
     #container {
         width: 100%;
         margin: 0px;
