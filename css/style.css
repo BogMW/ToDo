@@ -140,9 +140,9 @@ body {
     }
     #list li {
         list-style: none;
-        padding: 5px 0px 5px 10px;
+        padding: 15px 0px 15px 10px;
         font-size: 12px;
-        height: 25px;
+
     }
     #list li p {
         margin-left: 5px;
