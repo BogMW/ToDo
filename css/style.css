@@ -28,7 +28,6 @@ body {
 }
 
 #container {
-    /*background: url(../images/paperBack.png);*/
     width: 600px;
     margin: 0px auto;
     padding-top: 20px;
@@ -42,7 +41,6 @@ body {
 #list li {
     list-style: none;
     padding: 5px 0px 5px 10px;
-    font-size: 14px;
 }
 
 #list li:nth-child(even) {
@@ -118,26 +116,36 @@ body {
         background-color: rgba(136, 136, 136, 0.3);
         padding: 0px;
         width: 100%;
-        margin: 0px 6px;
+        margin: 0px;
     }
 
     #taskInput {
         width: 100%;
-        height: 60px;
         margin: 0px auto;
+        height: 60px;
         background: none;
         font-size: 20px;
         text-align: center;
     }
+    .filter {
+        width: 100%;
+        margin: 0px;
+        vertical-align: top;
+        display: block;
+    }
     .filter li {
         display: inline-block;
-        padding: 10px 15px;
+        padding: 15px 0px;
+        width: 33%;
         cursor: pointer;
         text-align: center;
-        width: 32%;
-        font-size: 12px;
-        height: 50px;
+        font-size: 16px;
     }
+    #filterInprogress {
+        width: 34%!important;
+    }
+
+
     #list li {
         list-style: none;
         padding: 15px 0px 15px 10px;
@@ -147,5 +155,9 @@ body {
     #list li p {
         margin-left: 5px;
         width: 90%;
+        font-size: 14px;
+    }
+    #formContainer {
+        padding: 0px 6px;
     }
 }
